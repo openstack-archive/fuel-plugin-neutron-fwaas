@@ -1,0 +1,14 @@
+{
+  "name": "fwaas",
+  "version": "0.1.0",
+  "author": "Andrey Epifanov",
+  "summary": "Module to manage fwaas",
+  "license": "Apache 2.0",
+  "source": "",
+  "project_page": "https://github.com/Mirantis/fuel-plugins",
+  "issues_url": "aepifanov@mirantis.com",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
