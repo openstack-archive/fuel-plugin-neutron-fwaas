@@ -8,8 +8,6 @@ class fwaas::params {
 
   $server_service     = 'neutron-server'
 
-  $full_node_name     = $fuel_settings['fqdn']
-
   if($vpn_enabled) {
 
     $l3_agent_service   = 'neutron-vpn-agent'
