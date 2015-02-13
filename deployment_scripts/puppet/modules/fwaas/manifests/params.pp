@@ -2,13 +2,25 @@
 
 class fwaas::params {
 
-  $server_service     = 'neutron-server'
-  $l3_agent_service   = 'neutron-l3-agent'
-
   $fuel_settings      = parseyaml($astute_settings_yaml)
-
   $ha                 = $fuel_settings['deployment_mode'] ? { 'ha_compact'=>true, default=>false }
+  $vpn_enabled        = $::is_vpn_enabled ? { 'clone_p_neutron-vpn-agent'=>true, default=>false }
+
+  $server_service     = 'neutron-server'
+
   $full_node_name     = $fuel_settings['fqdn']
+
+  if($vpn_enabled) {
+
+    $l3_agent_service   = 'neutron-vpn-agent'
+    $p_l3_agent         = 'p_neutron-vpn-agent'
+
+  } else {
+
+    $l3_agent_service   = 'neutron-l3-agent'
+    $p_l3_agent         = 'p_neutron-l3-agent'
+
+  }
 
   if($::osfamily == 'Redhat') {
     $server_package     = 'openstack-neutron'
