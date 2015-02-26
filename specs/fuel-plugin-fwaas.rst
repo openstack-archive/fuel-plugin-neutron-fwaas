@@ -88,17 +88,20 @@ Assignee(s)
 -----------
 
 Primary assignee:
+    Andrey Epifanov <aepifanov@mirantis.com> - feature lead, developer
 
-Feature Lead: Andrey Epifanov
-Mandatory Design Reviewers: Stanislaw Bogatkin, Sergey Kolekonov,
-Sergey Vasilenko
-Developers: Andrey Epifanov
-QA: Timur Nurlygayanov
+Other contrubitors:
+
+    Stanislaw Bogatkin <sbogatkin@mirantis.com> - design reviewer
+    Sergey Kolekonov <skilekonov@mirantis.com> - design reviewer
+    Timur Nurlygayanov <tnurlygayanov@mirantis.com> - QA engineer
+    Kristina Kuznetsova <kkuznetsova@mirantis.com> - QA engineer
+    Irina Povolotskaya <ipovolotskaya@mirantis.com> - technical writer
 
 Work Items
 ----------
 
-* Implement FUEL plugin.
+* Implement Fuel plugin.
 * Implement puppet manifests.
 * Testing.
 * Write documentation.
@@ -106,16 +109,16 @@ Work Items
 Dependencies
 ============
 
-* FUEL 6.0 and higher.
+* Fuel 6.0 and higher.
 
 Testing
 =======
 
 * Prepare a test plan.
 * Test deployment with activated plugin for all FUEL deployment modes.
-* Test FWaaS functionality as well:
-  https://wiki.openstack.org/wiki/Quantum/FWaaS/Testing
-* Integration tests with other OpenStack components and Neutron plugins.
+* Test FWaaS functionality as well according to the `FWaaS Testing
+  <https://wiki.openstack.org/wiki/Quantum/FWaaS/Testing>`_.
+* Provide integration tests with other OpenStack components and Neutron plugins.
 
 Documentation Impact
 ====================
