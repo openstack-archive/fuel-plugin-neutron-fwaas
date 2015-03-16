@@ -7,7 +7,14 @@ version: 1.0.0
 # Description
 description: Neutron extension that introduces FireWall feature set
 # Required fuel version
-fuel_version: ['6.0', '6.1']
+fuel_version: ['6.1']
+# Specify license of your plugin
+licenses: ['Apache License Version 2.0']
+# Specify author or company name
+authors: ['Andrey Epifanov']
+# A link to the plugin's page
+homepage: 'https://github.com/stackforge/fuel-plugin-neutron-vpnaas'
+groups: []
 
 # The plugin is compatible with releases in the list
 releases:
@@ -33,4 +40,4 @@ releases:
     repository_path: repositories/centos
 
 # Version of plugin package
-package_version: '1.0.0'
+package_version: '2.0.0'
