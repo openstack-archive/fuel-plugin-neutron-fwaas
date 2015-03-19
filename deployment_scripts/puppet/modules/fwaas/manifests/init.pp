@@ -37,9 +37,10 @@ class fwaas::enable_in_dashboard {
     enable  => true,
   }
 
+
   exec { 'enable_fwaas_dashboard':
-    command => "/bin/sed -i \"s/'enable_firewall': False/'enable_firewall': True/\" $fwaas::params::dashboard_settings",
-    unless  => "/bin/egrep \"'enable_firewall': True\" $fwaas::params::dashboard_settings",
+    command => "/bin/sed -i \"s/'enable_firewall': False/'enable_firewall': True/\" ${fwaas::params::dashboard_settings}",
+    unless  => "/bin/egrep \"'enable_firewall': True\" ${fwaas::params::dashboard_settings}",
   }
 
   Exec['enable_fwaas_dashboard'] ~> Service[$fwaas::params::dashboard_service]
@@ -56,8 +57,8 @@ class fwaas {
   if $fwaas::params::ha {
 
     service {$fwaas::params::p_l3_agent:
-      enable    => true,
       ensure    => running,
+      enable    => true,
       provider  => 'pacemaker',
       subscribe => Class[fwaas::enable_in_neutron_config],
     }
@@ -65,8 +66,8 @@ class fwaas {
   } else {
 
     service {$fwaas::params::l3_agent_service:
-      enable    => true,
       ensure    => running,
+      enable    => true,
       subscribe => Class[fwaas::enable_in_neutron_config],
     }
 
