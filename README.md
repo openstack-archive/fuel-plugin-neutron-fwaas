@@ -4,7 +4,7 @@ FWaaS plugin
 FWaaS (Firewall-as-a-Service) is a Neutron extension that introduces Firewall feature set.
 
 This repo contains all necessary files to build FWaaS Fuel plugin.
-Currently the only supported Fuel version is 6.0.
+Currently the only supported Fuel version is 6.1.
 
 Building the plugin
 -------------------
@@ -19,22 +19,21 @@ Building the plugin
 
    ``fpb --build fuel-plugin-neutron-fwaas/
 
-4. The fwaas-plugin-1.0.0.fp plugin file will be created.
+4. The fwaas-plugin-<x.x.x>.rpm plugin file will be created.
 
 5. Move this file to the Fuel Master node with secure copy (scp):
 
-	``scp fwaas-plugin-1.0.0.fp root@:<the_Fuel_Master_node_IP address>:/tmp``
+	``scp fwaas-plugin-<x.x.x>.rpm root@:<the_Fuel_Master_node_IP address>:/tmp``
    ``cd /tmp``
 
 6. Install it using the following command:
 
-	``fuel plugins --install fwaas-plugin-1.0.0.fp``
+	``fuel plugins --install fwaas-plugin-<x.x.x>.rpm``
 
 6. Plugin is ready to use and can be enabled on the Settings tab of the Fuel web UI.
 
-Note that you can also download the built FWaaS
-plugin from
-the [Fuel Plugins Catalog](https://software.mirantis.com/download-mirantis-openstack-fuel-plug-ins/).
+Note that you can also download the built FWaaS plugin from the
+[Fuel Plugins Catalog](https://software.mirantis.com/download-mirantis-openstack-fuel-plug-ins/).
 
 Deployment details
 ------------------
