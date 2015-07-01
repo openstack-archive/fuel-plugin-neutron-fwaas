@@ -18,7 +18,7 @@ class fwaas::params {
 
   $fuel_settings      = parseyaml($astute_settings_yaml)
   $ha                 = $fuel_settings['deployment_mode'] ? { 'ha_compact'=>true, default=>false }
-  $vpn_enabled        = $::is_vpn_enabled ? { 'clone_p_neutron-vpn-agent'=>true, default=>false }
+  $vpn_enabled        = $::is_vpn_enabled ? { 'Started'=>true, default=>false }
 
   $server_service     = 'neutron-server'
 
