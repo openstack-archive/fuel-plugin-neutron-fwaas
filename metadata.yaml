@@ -3,29 +3,29 @@ name: fwaas-plugin
 # Human-readable name for your plugin
 title: FWaaS plugin for Neutron
 # Plugin version
-version: 1.0.0
+version: 1.1.0
 # Description
 description: Neutron extension that introduces FireWall feature set
 # Required fuel version
-fuel_version: ['6.1']
+fuel_version: ['7.0']
 # Specify license of your plugin
 licenses: ['Apache License Version 2.0']
 # Specify author or company name
-authors: ['Andrey Epifanov']
+authors: ['Andrey Epifanov, Sergey Kolekonov']
 # A link to the plugin's page
-homepage: 'https://github.com/stackforge/fuel-plugin-neutron-vpnaas'
+homepage: 'https://github.com/stackforge/fuel-plugin-neutron-fwaas'
 # Groups
 groups: ['network']
 
 # The plugin is compatible with releases in the list
 releases:
   - os: ubuntu
-    version: 2014.2-6.1
+    version: 2015.1-7.0
     mode: ['ha', 'multinode']
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/ubuntu
   - os: centos
-    version: 2014.2-6.1
+    version: 2015.1-7.0
     mode: ['ha', 'multinode']
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/centos
