@@ -4,7 +4,7 @@ FWaaS plugin
 FWaaS (Firewall-as-a-Service) is a Neutron extension that introduces Firewall feature set.
 
 This repo contains all necessary files to build FWaaS Fuel plugin.
-Currently the only supported Fuel version is 6.1.
+Supported Fuel version is 7.0.
 
 Building the plugin
 -------------------
@@ -40,6 +40,8 @@ Deployment details
 
 FWaaS deployment requires only adding a couple parameters in neutron.conf and
 enabling FWaaS tab in Horizon.
+
+Currently this plugin is not compatible with Neutron DVR.
 
 Accessing FWaaS functionality
 ------------------------------
