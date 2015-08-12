@@ -16,8 +16,7 @@
 
 class fwaas::params {
 
-  $fuel_settings      = parseyaml($astute_settings_yaml)
-  $ha                 = $fuel_settings['deployment_mode'] ? { 'ha_compact'=>true, default=>false }
+  $ha                 = hiera('deployment_mode') ? { 'ha_compact'=>true, default=>false }
   $vpn_enabled        = $::is_vpn_enabled ? { 'Started'=>true, default=>false }
 
   $server_service     = 'neutron-server'
@@ -36,6 +35,7 @@ class fwaas::params {
 
   if($::osfamily == 'Redhat') {
     $server_package     = 'openstack-neutron'
+    $fwaas_package      = 'python-neutron-fwaas'
 
     $dashboard_package  = 'openstack-dashboard'
     $dashboard_service  = 'httpd'
@@ -46,6 +46,7 @@ class fwaas::params {
   } elsif($::osfamily == 'Debian') {
 
     $server_package     = 'neutron-server'
+    $fwaas_package      = 'python-neutron-fwaas'
 
     $dashboard_package  = 'python-django-horizon'
     $dashboard_service  = 'apache2'

@@ -24,14 +24,14 @@ class fwaas::enable_in_neutron_config {
     key_val_separator    => '=',
     path                 => '/etc/neutron/neutron.conf',
     setting              => 'service_plugins',
-    subsetting           => 'neutron.services.firewall.',
+    subsetting           => 'neutron_fwaas.services.firewall.',
     subsetting_separator => ',',
     value                => 'fwaas_plugin.FirewallPlugin',
   }
 
   neutron_config {
     'fwaas/enabled': value => 'True';
-    'fwaas/driver' : value => 'neutron.services.firewall.drivers.linux.iptables_fwaas.IptablesFwaasDriver';
+    'fwaas/driver' : value => 'neutron_fwaas.services.firewall.drivers.linux.iptables_fwaas.IptablesFwaasDriver';
   }
 
   service { $fwaas::params::server_service:
@@ -64,9 +64,35 @@ class fwaas::enable_in_dashboard {
 
 class fwaas {
 
-  require fwaas::params
-  require fwaas::enable_in_neutron_config
-  require fwaas::enable_in_dashboard
+  include fwaas::params
+  include fwaas::enable_in_neutron_config
+  include fwaas::enable_in_dashboard
+
+  $primary_controller = hiera('primary_controller')
+
+  if $::fwaas::params::fwaas_package {
+    Package['neutron-fwaas'] -> Class[fwaas::enable_in_neutron_config]
+    package { 'neutron-fwaas':
+      ensure  => present,
+      name    => $::fwaas::params::fwaas_package,
+    }
+  }
+
+  if $primary_controller {
+
+    Package<| title == 'neutron-fwaas' |> -> Exec['neutron-db-sync']
+
+    exec { 'neutron-db-sync':
+      command     => 'neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugin.ini --service fwaas upgrade head',
+      path        => '/usr/bin',
+      refreshonly => true,
+      tries       => 10,
+      try_sleep   => 10,
+    }
+    Neutron_config<||>                         ~> Exec['neutron-db-sync']
+    Ini_subsetting['add_fwaas_service_plugin'] ~> Exec['neutron-db-sync']
+    Exec['neutron-db-sync']                    ~> Service[$fwaas::params::server_service]
+  }
 
   if $fwaas::params::ha {
 

@@ -4,7 +4,7 @@ FWaaS plugin
 FWaaS (Firewall-as-a-Service) is a Neutron extension that introduces Firewall feature set.
 
 This repo contains all necessary files to build FWaaS Fuel plugin.
-Currently the only supported Fuel version is 6.1.
+Supported Fuel version is 7.0.
 
 Building the plugin
 -------------------
