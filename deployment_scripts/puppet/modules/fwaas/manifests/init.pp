@@ -24,14 +24,14 @@ class fwaas::enable_in_neutron_config {
     key_val_separator    => '=',
     path                 => '/etc/neutron/neutron.conf',
     setting              => 'service_plugins',
-    subsetting           => 'neutron.services.firewall.',
+    subsetting           => 'neutron_fwaas.services.firewall.',
     subsetting_separator => ',',
     value                => 'fwaas_plugin.FirewallPlugin',
   }
 
   neutron_config {
     'fwaas/enabled': value => 'True';
-    'fwaas/driver' : value => 'neutron.services.firewall.drivers.linux.iptables_fwaas.IptablesFwaasDriver';
+    'fwaas/driver' : value => 'neutron_fwaas.services.firewall.drivers.linux.iptables_fwaas.IptablesFwaasDriver';
   }
 
   service { $fwaas::params::server_service:
@@ -67,6 +67,14 @@ class fwaas {
   require fwaas::params
   require fwaas::enable_in_neutron_config
   require fwaas::enable_in_dashboard
+
+  if $::fwaas::params::fwaas_package {
+    Package['neutron-fwaas'] -> Class[fwaas::enable_in_neutron_config]
+    package { 'neutron-fwaas':
+      ensure  => present,
+      name    => $::fwaas::params::fwaas_package,
+    }
+  }
 
   if $fwaas::params::ha {
 

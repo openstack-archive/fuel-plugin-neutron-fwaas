@@ -36,6 +36,7 @@ class fwaas::params {
 
   if($::osfamily == 'Redhat') {
     $server_package     = 'openstack-neutron'
+    $fwaas_package      = 'python-neutron-fwaas'
 
     $dashboard_package  = 'openstack-dashboard'
     $dashboard_service  = 'httpd'
