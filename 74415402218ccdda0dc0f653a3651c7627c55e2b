@@ -1,0 +1,8 @@
+Verified+2: Jenkins
+Code-Review+2: Andrey Epifanov <aepifanov@mirantis.com>
+Workflow+1: Andrey Epifanov <aepifanov@mirantis.com>
+Submitted-by: Jenkins
+Submitted-at: Mon, 24 Aug 2015 14:50:05 +0000
+Reviewed-on: https://review.openstack.org/212054
+Project: stackforge/fuel-plugin-neutron-fwaas
+Branch: refs/heads/master
