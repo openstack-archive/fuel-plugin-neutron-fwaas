@@ -50,4 +50,4 @@ Firewall settings can be found on the Openstack Dashboard (Horizon) in
 Project -> Network -> Firewall.
 
 Please use official Openstack documentation to obtain more information:
-- http://docs.openstack.org/admin-guide-cloud/content/install_neutron-fwaas-agent.html
+- https://docs.openstack.org/admin-guide/index.html#firewall-as-a-service-fwaas-overview
