@@ -17,19 +17,19 @@
 class fwaas::params {
 
   $ha                 = hiera('deployment_mode') ? { 'ha_compact'=>true, default=>false }
-  $vpn_enabled        = $::is_vpn_enabled ? { 'Started'=>true, default=>false }
+  $l3_enabled         = $::is_l3_enabled ? { 'Started'=>true, default=>false }
 
   $server_service     = 'neutron-server'
 
-  if($vpn_enabled) {
-
-    $l3_agent_service   = 'neutron-vpn-agent'
-    $p_l3_agent         = 'p_neutron-vpn-agent'
-
-  } else {
+  if($l3_enabled) {
 
     $l3_agent_service   = 'neutron-l3-agent'
     $p_l3_agent         = 'p_neutron-l3-agent'
+
+  } else {
+
+    $l3_agent_service   = 'neutron-vpn-agent'
+    $p_l3_agent         = 'p_neutron-vpn-agent'
 
   }
 

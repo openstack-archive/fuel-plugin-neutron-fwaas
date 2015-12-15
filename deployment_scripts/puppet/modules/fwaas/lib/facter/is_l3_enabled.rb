@@ -12,8 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-Facter.add('is_vpn_enabled') do
+Facter.add('is_l3_enabled') do
   setcode do
-    Facter::Util::Resolution.exec("pcs status xml | grep ocf-neutron-vpn-agent | egrep -o Started -m 1")
+    Facter::Util::Resolution.exec("pcs status xml | grep ocf-neutron-l3-agent | egrep -o Started -m 1")
   end
 end
