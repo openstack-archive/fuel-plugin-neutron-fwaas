@@ -1,6 +1,8 @@
-- role: ['controller','primary-controller']
-  stage: post_deployment
+- id: neutron-fwaas
   type: puppet
+  role: ['controller','primary-controller']
+  requires: [post_deployment_start]
+  required_for: [post_deployment_end]
   parameters:
     puppet_manifest: puppet/manifests/site.pp
     puppet_modules: puppet/modules:/etc/puppet/modules

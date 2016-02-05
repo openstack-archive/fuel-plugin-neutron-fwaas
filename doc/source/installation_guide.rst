@@ -11,19 +11,19 @@ Installing FWaaS plugin
 
 #. Copy the plug­in on already installed Fuel Master node::
 
-      [user@home ~]$ scp fwaas-plugin-1.1-1.1.0-1.noarch.rpm root@:/
+      [user@home ~]$ scp fwaas-plugin-1.2-1.2.0-1.noarch.rpm root@:/
       <the_Fuel_Master_node_IP>:~/
 
 #. Log into the Fuel Master node. Install the plugin::
 
-      [root@fuel ~]# fuel plugins --install fwaas-plugin-1.1-1.1.0-1.noarch.rpm
+      [root@fuel ~]# fuel plugins --install fwaas-plugin-1.2-1.2.0-1.noarch.rpm
 
 #. Verify that the plugin is installed correctly::
 
       [root@fuel ~]# fuel plugins --list
       id | name         | version | package_version
       ---|--------------|---------|----------------
-      1  | fwaas_plugin | 1.1.0   | 2.0.0
+      1  | fwaas_plugin | 1.2.0   | 3.0.0
 
 
 Creating Environment with FWaaS

@@ -4,12 +4,12 @@ FWaaS plugin
 FWaaS (Firewall-as-a-Service) is a Neutron extension that introduces Firewall feature set.
 
 This repo contains all necessary files to build FWaaS Fuel plugin.
-Supported Fuel version is 7.0.
+Supported Fuel version is 7.0 and 8.0.
 
 Building the plugin
 -------------------
 
-1. Clone the FWaaS plugin repo from `https://github.com/stackforge/fuel-plugin-neutron-fwaas`.
+1. Clone the FWaaS plugin repo from `https://github.com/openstack/fuel-plugin-neutron-fwaas`.
 2. Install Fuel Plugin Builder:
 
     ``pip install fuel-plugin-builder``
@@ -50,4 +50,4 @@ Firewall settings can be found on the Openstack Dashboard (Horizon) in
 Project -> Network -> Firewall.
 
 Please use official Openstack documentation to obtain more information:
-- http://docs.openstack.org/admin-guide-cloud/content/install_neutron-fwaas-agent.html
+- http://docs.openstack.org/admin-guide-cloud/networking_introduction.html#firewall-as-a-service-fwaas-overview

@@ -6,7 +6,7 @@
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with FWaaS](#setup)
     * [What FWaaS affects](#what-fwaas-affects)
-    * [Beginning with VPNaaS](#beginning-with-fwaas)
+    * [Beginning with FWaaS](#beginning-with-fwaas)
 4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 
@@ -27,7 +27,7 @@ It supports one firewall policy and logical firewall instance per project.
 
 * During installation manifests add a couple options in neutron.conf and enable FWaaS tab in Horizon.
 
-### Beginning with VPNaaS
+### Beginning with FWaaS
 
 How to use FWaaS you can find here:
 http://docs.openstack.org/api/openstack-network/2.0/content/fwaas_ext.html
@@ -41,4 +41,4 @@ with things. (We are working on automating this section!)
 
 ## Limitations
 
-This plugin supports only the following OS: CentOS 6.4 and Ubuntu 12.04.
+This plugin supports only the following OS: Ubuntu 14.04.

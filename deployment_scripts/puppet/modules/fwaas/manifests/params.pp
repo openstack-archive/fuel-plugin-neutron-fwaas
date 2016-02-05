@@ -33,17 +33,7 @@ class fwaas::params {
 
   }
 
-  if($::osfamily == 'Redhat') {
-    $server_package     = 'openstack-neutron'
-    $fwaas_package      = 'python-neutron-fwaas'
-
-    $dashboard_package  = 'openstack-dashboard'
-    $dashboard_service  = 'httpd'
-    $dashboard_settings = '/etc/openstack-dashboard/local_settings'
-
-    $node_name          = $full_node_name
-
-  } elsif($::osfamily == 'Debian') {
+  if($::osfamily == 'Debian') {
 
     $server_package     = 'neutron-server'
     $fwaas_package      = 'python-neutron-fwaas'
