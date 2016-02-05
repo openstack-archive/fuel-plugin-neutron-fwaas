@@ -44,8 +44,10 @@ Requirements
 | Requirement                | Version/Comment                                |
 +============================+================================================+
 | Fuel                       | 7.0 release with Maintenance Update 2          |
+|                            | 8.0 release                                    |
 +----------------------------+------------------------------------------------+
 | OpenStack compatibility    | 2015.1 Kilo with Maintenance Update 2          |
+|                            | liberty-8.0                                    |
 +----------------------------+------------------------------------------------+
 | Operating systems          | Ubuntu 14.04 LTS                               |
 +----------------------------+------------------------------------------------+
@@ -72,4 +74,3 @@ If your environment doesn't contain MU-2, please apply it:
 .. target-notes::
 .. _[FWaaS] Error firewall state after updating policy or rule: https://bugs.launchpad.net/mos/7.0.x/+bug/1510576
 .. _How to apply Mirantis OpenStack 7.0 Maintenance Update: https://docs.mirantis.com/openstack/fuel/fuel-7.0/maintenance-updates.html
-
