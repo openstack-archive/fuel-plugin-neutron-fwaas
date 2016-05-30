@@ -83,7 +83,7 @@ class fwaas {
     Package<| title == 'neutron-fwaas' |> -> Exec['neutron-db-sync']
 
     exec { 'neutron-db-sync':
-      command     => 'neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugin.ini --service fwaas upgrade head',
+      command     => 'neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugin.ini --subproject neutron-fwaas upgrade head',
       path        => '/usr/bin',
       refreshonly => true,
       tries       => 10,
